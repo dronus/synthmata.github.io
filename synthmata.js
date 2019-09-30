@@ -167,20 +167,6 @@ function buildSaveLoadSharePanel() {
         loadInitPatch();
     }
     container.appendChild(initPatchButton);
-
-    let sharableLinkTextbox = document.createElement("textarea");
-    sharableLinkTextbox.id = "sharableLinkTextbox";
-    sharableLinkTextbox.setAttribute("readonly", true);
-    
-    let createSharableLinkButton = document.createElement("button");
-    createSharableLinkButton.id = "createSharableLinkButton";
-    createSharableLinkButton.textContent = "Create Sharable Patch Link";
-    createSharableLinkButton.onclick = function(){
-        sharableLinkTextbox.value = createSharablePatchLink();
-    }
-
-    container.appendChild(createSharableLinkButton);
-    container.appendChild(sharableLinkTextbox);
 }
 
 function setupParameterControls() {
@@ -245,6 +231,7 @@ function handleValueChange(event){
     }else{
         handleValueChangeVoiceDump(event);
     }
+    createSharablePatchHash();
 }
 
 // On the Yamaha synths we can send invididual parameters, but we will still maintain
@@ -562,7 +549,7 @@ function tryLoadSysex(event) {
     reader.readAsArrayBuffer(goodFile);
 }
 
-function createSharablePatchLink(){
+function createSharablePatchHash(){
     let tmpMode = isYamahaMode;
     isYamahaMode = false;
     let patchAsB64 = base64js.fromByteArray(createSysexDumpBuffer());
@@ -570,15 +557,12 @@ function createSharablePatchLink(){
     // abusing dom to parse the current url
     var parser = document.createElement('a');
     parser.href = window.location;
-    let result =  parser.origin + parser.pathname + "?p=" + encodeURIComponent(patchAsB64);
-    return result;
+    document.location.hash = "p=" + encodeURIComponent(patchAsB64);
 }
 
 function loadSharablePatchLink(url){
-    // abusing dom to parse the current url
-    var parser = document.createElement('a');
-    parser.href = window.location;
-    let queryString = parser.search;
+    // abusing dom to parse the current 
+    let queryString = url.hash.substring(1);
     var searchParams = new URLSearchParams(queryString);
     if(!searchParams.has("p")){
         return false;
