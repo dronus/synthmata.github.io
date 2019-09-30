@@ -95,25 +95,12 @@
 </head>
 
 <body onload="initialise()">
-    <div id="title-head">
-        <span>synthmata</span>
-    </div>
-    <div id="title-byline">
-        <span>by
-            <a href="http://oscillatorsink.com">oscillatorsink</a>
-        </span>
-    </div>
-    <div id="subtitle-head">
-        <span>free online patch editor for Volca FM + DX7<br>BETA VERSION</span>
-    </div>
-    
     <div id="main-content">
         <div class="controlpanel">
             <h2>Setup</h2>
             <div class="controlflexlayout">
                 <div class="controlitemgroup" id="midiSetup">
                     <h3>Midi Device Setup</h3>
-                    <p>NB For Volca-FM please leave channel set to '1' as the Volca only listens for patch information on this channel</p>
                 </div>
                 <div class="controlitemgroup" id="saveLoadShare">
                     <h3>Save/Load/Share</h3>
@@ -121,6 +108,114 @@
 
             </div>
         </div>
+
+        <div class="controlpanel">
+            <h2>Global Voice Controls</h2>
+            <div class="controlflexlayout">
+                <div class="controlitemgroup">
+                    <h3>Operator Settings</h3>
+                    <div class="controller">
+                        <label for="sysex134">Algorithm </label>
+                        <input class="sysexParameter" data-sysexparameterno="134" data-displayvaluefunc="addOne" id="sysex134" max="31" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="sysex135">Feedback </label>
+                        <input class="sysexParameter" data-sysexparameterno="135" id="sysex135" max="7" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="sysex136">Operator Key Sync </label>
+                        <select class="sysexParameter" data-sysexparameterno="136" id="sysex136" type="range">
+                            <option label="Off" value="0"></option>
+                            <option label="On" value="1"></option>
+                        </select>
+                    </div>
+                    <div class="controller">
+                        <label for="sysex144">Transpose </label>
+                        <input class="sysexParameter" data-sysexparameterno="144" id="sysex144" max="48" min="0" type="range" />
+                    </div>
+                </div>
+                <div class="controlitemgroup">
+                    <h3>Pitch Envelope Rates</h3>
+                    <div class="controller">
+                        <label for="sysex126">Pitch EG R1 </label>
+                        <input class="sysexParameter" data-sysexparameterno="126" id="sysex126" max="99" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="sysex127">Pitch EG R2 </label>
+                        <input class="sysexParameter" data-sysexparameterno="127" id="sysex127" max="99" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="sysex128">Pitch EG R3 </label>
+                        <input class="sysexParameter" data-sysexparameterno="128" id="sysex128" max="99" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="sysex129">Pitch EG R4 </label>
+                        <input class="sysexParameter" data-sysexparameterno="129" id="sysex129" max="99" min="0" type="range" />
+                    </div>
+                </div>
+                <div class="controlitemgroup">
+                    <h3>Pitch Envelope Levels</h3>
+                    <div class="controller">
+                        <label for="sysex130">Pitch EG L1 </label>
+                        <input class="sysexParameter" data-sysexparameterno="130" id="sysex130" max="99" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="sysex131">Pitch EG L2 </label>
+                        <input class="sysexParameter" data-sysexparameterno="131" id="sysex131" max="99" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="sysex132">Pitch EG L3 </label>
+                        <input class="sysexParameter" data-sysexparameterno="132" id="sysex132" max="99" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="sysex133">Pitch EG L4 </label>
+                        <input class="sysexParameter" data-sysexparameterno="133" id="sysex133" max="99" min="0" type="range" />
+                    </div>
+                </div>
+                <div class="controlitemgroup">
+                    <h3>LFO Settings</h3>
+                    <div class="controller">
+                        <label for="sysex137">LFO Speed </label>
+                        <input class="sysexParameter" data-sysexparameterno="137" id="sysex137" max="99" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="sysex142">LFO Wave Shape </label>
+                        <input class="sysexParameter" data-sysexparameterno="142" data-displayvaluefunc="lfoShape" id="sysex142" max="5" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="sysex139">LFO Pitch Mod Depth </label>
+                        <input class="sysexParameter" data-sysexparameterno="139" id="sysex139" max="99" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="sysex140">LFO Amp Mod Depth </label>
+                        <input class="sysexParameter" data-sysexparameterno="140" id="sysex140" max="99" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="sysex138">LFO Delay </label>
+                        <input class="sysexParameter" data-sysexparameterno="138" id="sysex138" max="99" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="sysex141">LFO Key Sync </label>
+                        <select class="sysexParameter" data-sysexparameterno="141" id="sysex141" type="range">
+                            <option label="Off" value="0"></option>
+                            <option label="On" value="1"></option>
+                        </select>
+                    </div>
+                    <div class="controller">
+                        <label for="sysex143">Pitch Mod Sensitivity </label>
+                        <input class="sysexParameter" data-sysexparameterno="143" id="sysex143" max="7" min="0" type="range" />
+                    </div>
+                </div>
+                <div class="controlitemgroup">
+                    <h3>Patch Settings</h3>
+                    <div class="controller">
+                        <label for="sysex145">Name </label>
+                        <input class="sysexParameterText" data-sysexparameterno="145" data-sysextextlength="10" id="sysex145" type="text" maxlength="10"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="controlpanel">
             <h2>Operator On/Off</h2>
             <div class="controlflexlayout">
@@ -831,112 +926,6 @@
             </div>
         </div>
 
-        <div class="controlpanel">
-            <h2>Global Voice Controls</h2>
-            <div class="controlflexlayout">
-                <div class="controlitemgroup">
-                    <h3>Operator Settings</h3>
-                    <div class="controller">
-                        <label for="sysex134">Algorithm </label>
-                        <input class="sysexParameter" data-sysexparameterno="134" data-displayvaluefunc="addOne" id="sysex134" max="31" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="sysex135">Feedback </label>
-                        <input class="sysexParameter" data-sysexparameterno="135" id="sysex135" max="7" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="sysex136">Operator Key Sync </label>
-                        <select class="sysexParameter" data-sysexparameterno="136" id="sysex136" type="range">
-                            <option label="Off" value="0"></option>
-                            <option label="On" value="1"></option>
-                        </select>
-                    </div>
-                    <div class="controller">
-                        <label for="sysex144">Transpose </label>
-                        <input class="sysexParameter" data-sysexparameterno="144" id="sysex144" max="48" min="0" type="range" />
-                    </div>
-                </div>
-                <div class="controlitemgroup">
-                    <h3>Pitch Envelope Rates</h3>
-                    <div class="controller">
-                        <label for="sysex126">Pitch EG R1 </label>
-                        <input class="sysexParameter" data-sysexparameterno="126" id="sysex126" max="99" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="sysex127">Pitch EG R2 </label>
-                        <input class="sysexParameter" data-sysexparameterno="127" id="sysex127" max="99" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="sysex128">Pitch EG R3 </label>
-                        <input class="sysexParameter" data-sysexparameterno="128" id="sysex128" max="99" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="sysex129">Pitch EG R4 </label>
-                        <input class="sysexParameter" data-sysexparameterno="129" id="sysex129" max="99" min="0" type="range" />
-                    </div>
-                </div>
-                <div class="controlitemgroup">
-                    <h3>Pitch Envelope Levels</h3>
-                    <div class="controller">
-                        <label for="sysex130">Pitch EG L1 </label>
-                        <input class="sysexParameter" data-sysexparameterno="130" id="sysex130" max="99" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="sysex131">Pitch EG L2 </label>
-                        <input class="sysexParameter" data-sysexparameterno="131" id="sysex131" max="99" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="sysex132">Pitch EG L3 </label>
-                        <input class="sysexParameter" data-sysexparameterno="132" id="sysex132" max="99" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="sysex133">Pitch EG L4 </label>
-                        <input class="sysexParameter" data-sysexparameterno="133" id="sysex133" max="99" min="0" type="range" />
-                    </div>
-                </div>
-                <div class="controlitemgroup">
-                    <h3>LFO Settings</h3>
-                    <div class="controller">
-                        <label for="sysex137">LFO Speed </label>
-                        <input class="sysexParameter" data-sysexparameterno="137" id="sysex137" max="99" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="sysex142">LFO Wave Shape </label>
-                        <input class="sysexParameter" data-sysexparameterno="142" data-displayvaluefunc="lfoShape" id="sysex142" max="5" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="sysex139">LFO Pitch Mod Depth </label>
-                        <input class="sysexParameter" data-sysexparameterno="139" id="sysex139" max="99" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="sysex140">LFO Amp Mod Depth </label>
-                        <input class="sysexParameter" data-sysexparameterno="140" id="sysex140" max="99" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="sysex138">LFO Delay </label>
-                        <input class="sysexParameter" data-sysexparameterno="138" id="sysex138" max="99" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="sysex141">LFO Key Sync </label>
-                        <select class="sysexParameter" data-sysexparameterno="141" id="sysex141" type="range">
-                            <option label="Off" value="0"></option>
-                            <option label="On" value="1"></option>
-                        </select>
-                    </div>
-                    <div class="controller">
-                        <label for="sysex143">Pitch Mod Sensitivity </label>
-                        <input class="sysexParameter" data-sysexparameterno="143" id="sysex143" max="7" min="0" type="range" />
-                    </div>
-                </div>
-                <div class="controlitemgroup">
-                    <h3>Patch Settings</h3>
-                    <div class="controller">
-                        <label for="sysex145">Name </label>
-                        <input class="sysexParameterText" data-sysexparameterno="145" data-sysextextlength="10" id="sysex145" type="text" maxlength="10"/>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="controlpanel">
             <h2>Randomizer</h2>
             <div class="controlflexlayout">
