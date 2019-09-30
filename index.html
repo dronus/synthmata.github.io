@@ -107,6 +107,64 @@
                 </div>
 
             </div>
+
+            <h2>Randomizer</h2>
+            <div class="controlflexlayout">
+                <div class="controlitemgroup">
+                    <h3>Timbre</h3>
+                    <div class="controller">
+                        <label for="random_atonality">Atonality</label>
+                        <input id="random_atonality" class="randomizerParameter" value="0" max="99" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="random_complexity">Complexity</label>
+                        <input id="random_complexity" class="randomizerParameter" value="0" max="99" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="random_brightness">Brightness</label>
+                        <input id="random_brightness" class="randomizerParameter" value="0" max="99" min="0" type="range" />
+                    </div>
+                </div>
+                <div class="controlitemgroup">
+                    <h3>Envelope</h3>
+                    <div class="controller">
+                        <label for="random_hardness">Hardness</label>
+                        <input id="random_hardness" class="randomizerParameter" value="50" max="99" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="random_hit">Hit</label>
+                        <input id="random_hit" class="randomizerParameter" value="50" max="99" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="random_twang">Twang</label>
+                        <input id="random_twang" class="randomizerParameter" value="50" max="99" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="random_longness">Longness</label>
+                        <input id="random_longness" class="randomizerParameter" value="50" max="99" min="0" type="range" />
+                    </div>
+                </div>
+                <div class="controlitemgroup">
+                    <h3>Movement</h3>
+                    <div class="controller">
+                        <label for="random_wobble">Wobble</label>
+                        <input id="random_wobble" class="randomizerParameter" value="0" max="99" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="random_wubble">Wubble</label>
+                        <input id="random_wubble" class="randomizerParameter" value="0" max="99" min="0" type="range" />
+                    </div>
+                    <div class="controller">
+                        <label for="random_velocity">Velocity</label>
+                        <input id="random_velocity" class="randomizerParameter" value="0" max="99" min="0" type="range" />
+                    </div>
+                </div>
+                <div class="controlitemgroup">
+                    <div class="controller">
+                        <button id="random_newpatch" >Create Random Patch</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="controlpanel">
@@ -888,67 +946,6 @@
                     <div class="controller">
                         <label for="sysex16">Operator Output Level </label>
                         <input class="sysexParameter" data-sysexparameterno="16" id="sysex16" max="99" min="0" type="range" />
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="controlpanel">
-            <h2>Randomizer</h2>
-            <div class="controlflexlayout">
-                <div class="controlitemgroup">
-                    <h3>Timbre</h3>
-                    <div class="controller">
-                        <label for="random_atonality">Atonality</label>
-                        <input id="random_atonality" class="randomizerParameter" value="0" max="99" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="random_complexity">Complexity</label>
-                        <input id="random_complexity" class="randomizerParameter" value="0" max="99" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="random_brightness">Brightness</label>
-                        <input id="random_brightness" class="randomizerParameter" value="0" max="99" min="0" type="range" />
-                    </div>
-                </div>
-                <div class="controlitemgroup">
-                    <h3>Envelope</h3>
-                    <div class="controller">
-                        <label for="random_hardness">Hardness</label>
-                        <input id="random_hardness" class="randomizerParameter" value="50" max="99" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="random_hit">Hit</label>
-                        <input id="random_hit" class="randomizerParameter" value="50" max="99" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="random_twang">Twang</label>
-                        <input id="random_twang" class="randomizerParameter" value="50" max="99" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="random_longness">Longness</label>
-                        <input id="random_longness" class="randomizerParameter" value="50" max="99" min="0" type="range" />
-                    </div>
-                </div>
-                <div class="controlitemgroup">
-                    <h3>Movement</h3>
-                    <div class="controller">
-                        <label for="random_wobble">Wobble</label>
-                        <input id="random_wobble" class="randomizerParameter" value="0" max="99" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="random_wubble">Wubble</label>
-                        <input id="random_wubble" class="randomizerParameter" value="0" max="99" min="0" type="range" />
-                    </div>
-                    <div class="controller">
-                        <label for="random_velocity">Velocity</label>
-                        <input id="random_velocity" class="randomizerParameter" value="0" max="99" min="0" type="range" />
-                    </div>
-                </div>
-                <div class="controlitemgroup">
-                    <h3>Go!</h3>
-                    <div class="controller">
-                        <button id="random_newpatch" >New Patch</button>
                     </div>
                 </div>
             </div>
