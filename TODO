@@ -1,5 +1,5 @@
 
-
+-Receive Parameter Change  of Voice Dump Sysex (reaction is slow otherwise)
 -Redo envelope graphing in dx7envdisplay.js to accuarately mimic the envelope generators:
 --Exponential value display to match the exponential operator level control (db-like).
 --Sync time scale of all envelopes, otherwise all envelopes show up in different timescales and there is no intuitive feedback how the operators work together over time
