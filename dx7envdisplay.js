@@ -69,11 +69,17 @@ function makeEnvelope(r1Ele, r2Ele, r3Ele, r4Ele, l1Ele, l2Ele, l3Ele, l4Ele, ca
         let stepThreeX = ((Math.abs(l2 - l3) / (r3 + 1)) * maxStepWidth) / 100; 
         let stepFourX = ((Math.abs(l3 - l4) / (r4 + 1)) * maxStepWidth) / 100;
 
-        //let finalWidth = easeInWidth * 2 + stepOneX + stepTwoX + stepThreeX + stepFourX;
         let finalWidth = stepOneX + stepTwoX + stepThreeX + stepFourX;
         easeInWidth = finalWidth / 10;
         finalWidth += easeInWidth * 4;
         let scale = finalWidth / canvasWidth; 
+
+	// apply x scaling, fitting envelope to canvas
+	easeInWidth/=scale;
+	stepOneX/=scale;
+	stepTwoX/=scale;
+	stepThreeX/=scale;
+	stepFourX/=scale;
 
         let ctx = canvas.getContext("2d");
         //reset transform matrix ahead of any work
@@ -81,16 +87,8 @@ function makeEnvelope(r1Ele, r2Ele, r3Ele, r4Ele, l1Ele, l2Ele, l3Ele, l4Ele, ca
         ctx.clearRect(0, 0, canvasWidth, canvasHeight);
         ctx.fillStyle = "#444444";
         ctx.fillRect(0, 0, canvasWidth, canvasHeight);
-        // set scale if required to fit
-        
-        /*
-        if(scale > 1){
-            ctx.scale(1/scale, 1);
-        }
-        */
-        ctx.scale(1/scale, 1);
-        
-        ctx.lineWidth = 5 * scale;
+
+        ctx.lineWidth = 2;
         ctx.lineCap = "round";
         ctx.lineJoin = "round";
         ctx.strokeStyle = "rgb(41, 163, 67)";
@@ -98,56 +96,30 @@ function makeEnvelope(r1Ele, r2Ele, r3Ele, r4Ele, l1Ele, l2Ele, l3Ele, l4Ele, ca
         let x = 0;
         // EASE IN
         ctx.beginPath();
-
         ctx.moveTo(x, baseLine - (l4 * envHeight) / 100);
         x += easeInWidth;
-        ctx.lineTo(x, baseLine - (l4 * envHeight) / 100);
-        ctx.strokeStyle = "rgb(27, 110, 44)";
-        ctx.stroke();
-        
+	ctx.lineTo(x, baseLine - (l4 * envHeight) / 100);
+                
         // MAIN ENV PT.1
-        ctx.beginPath();
-        ctx.moveTo(x, baseLine - (l4 * envHeight) / 100);
         x += stepOneX
         ctx.lineTo(x, baseLine - (l1 * envHeight) / 100);
         x += stepTwoX;
         ctx.lineTo(x, baseLine - (l2 * envHeight) / 100);
         x += stepThreeX;
         ctx.lineTo(x, baseLine - (l3 * envHeight) / 100);
-        ctx.strokeStyle = "rgb(41, 163, 67)";
-        ctx.stroke();
         
         // SUSTAIN
-        ctx.beginPath();
-        ctx.moveTo(x, baseLine - (l3 * envHeight) / 100);
         x += easeInWidth * 2;
         ctx.lineTo(x, baseLine - (l3 * envHeight) / 100);
-        ctx.strokeStyle = "rgb(27, 110, 44)";
-        ctx.stroke();
 
         // MAIN ENV PT.2
-        ctx.beginPath();
-        ctx.moveTo(x, baseLine - (l3 * envHeight) / 100);
         x += stepFourX;
         ctx.lineTo(x, baseLine - (l4 * envHeight) / 100);
-        
-        ctx.strokeStyle = "rgb(41, 163, 67)";
-        ctx.stroke();
-        
-        // EASE OUT
-        ctx.beginPath();
-        ctx.moveTo(x, baseLine - (l4 * envHeight) / 100);
+
         x += easeInWidth;
         ctx.lineTo(x, baseLine - (l4 * envHeight) / 100);
-        ctx.strokeStyle = "rgb(27, 110, 44)";
+        ctx.strokeStyle = "rgb(27, 200, 44)";
         ctx.stroke();
-        
-        //ctx.lineWidth = 5;
-        //ctx.lineWidth = 5 * scale;
-        //ctx.lineCap = "round";
-        //ctx.lineJoin = "round";
-        //ctx.strokeStyle = "rgb(41, 163, 67)";
-        //ctx.stroke();
 
         ctx.setTransform(1, 0, 0, 1, 0, 0);
         // draw text information
