@@ -212,6 +212,7 @@
                         <select id="channelSelector"></select>
                     </div>
                     <small>NB. For Volca-FM please leave channel set to '1' as the Volca only listens for patch information on this channel</small>
+                    <small>For Yamaha DX7, leave channel set to '1' if you want to receive voices from the DX7 ('Sysex available' mode), as it always transmits at channel 1.</small>
                 </div>
                 <div class="controlitemgroup" id="modeSetup">
                     <h3>Mode</h3>
@@ -509,7 +510,7 @@
                     </div>
                     <div class="controller">
                         <label for="sysex115">Level Scale Right Depth </label>
-                        <input class="sysexParameter" data-sysexparameterno="115" data-displayvaluefunc="addOne" id="sysex115" max="99" min="0" type="range" />
+                        <input class="sysexParameter" data-sysexparameterno="115" id="sysex115" max="99" min="0" type="range" />
                     </div>
                     <div class="controller">
                         <label for="sysex116">Level Scale Left Curve </label>
